@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Save Employee</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h3>Employee Directory</h3>
+        <hr>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th>Bericht</th>
+                <th>datum</th>
+                <!--th>action</th>
+                <th>birthday</th-->
+                <!--th>Action</th-->
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="tempEmployee : ${k_h}">
+
+                <!--td th:text="${tempEmployee.id}" /-->
+                <td th:text="${tempEmployee.comment}" />
+                <td th:text="${tempEmployee.datum}" />
+                <!--td th:datetime="${tempEmployee.geburtsdatum}" -->
+                <td>
+                <hr>
+            </tbody>
+        </table>
+    </div>
+        <a th:href="@{/employees/list}">Back to Employees List</a>
+
+    <hr>
+    <hr>
+
+
+    <form action="#" th:action="@{/kunden/savek_h}" method="POST">
+
+        <input type="text" th:field="*{k_h}"
+
+               class="form-control mb-4 w-25"  placeholder="   bericht  ">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+
+</body>
+</html>
